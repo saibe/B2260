@@ -1,6 +1,6 @@
 ## Windows Host
 
-This section show how to install an operating system to your BB2260 using the SD Card method on a Windows host computer.
+This section show how to install an operating system to your B2260 using the SD Card method on a Windows host computer.
 ***
 
 - **Step 1**: Prepare MicroSD card
@@ -8,8 +8,7 @@ This section show how to install an operating system to your BB2260 using the SD
 - **Step 3**: Unzip _SD Card Install Image_
 - **Step 4**: Download the Win32DiskImager tool
 - **Step 5**: Use Win32DiskImager tool to flash image onto SD Card Card
-- **Step 6**: Prepare BB2260 with SD card
-- **Step 7**: Install image onto BB2260
+- **Step 6**: Prepare B2260 with SD card
 
 ***
 
@@ -25,9 +24,8 @@ This section show how to install an operating system to your BB2260 using the SD
 
 ####**Step 3**: Unzip _SD Card Install Image_
 
-- When unzipped, this download will be a folder with the falling contents
+- When unzipped, this download will be a file
    - Install Image (.img)
-   - Readme
 
 ####**Step 4**: Download the Win32DiskImager tool
 
@@ -39,8 +37,6 @@ This section show how to install an operating system to your BB2260 using the SD
 - Click the folder icon in the top right
 - Find your way to the appropriate `.img` file (This is why you need to remember the location of your extracted image.)
 
-<img src="http://i.imgur.com/cqk6LhL.png" data-canonical-src="http://i.imgur.com/cqk6LhL.png" width="300" height="150"/>
-
 - Insert your microSD card (through a USB SD card-reader, if necessary)
 - Select the correct device and click "write" There may be a warning about corrupting the device. Click "Yes" to proceed.
 - This process may take a few minutes, be patient and wait for a completion notice.
@@ -50,29 +46,12 @@ This section show how to install an operating system to your BB2260 using the SD
 
 - Eject SD Card and proceed to next **Step**
 
-####**Step 6**: Prepare BB2260 with SD card
+####**Step 6**: Prepare B2260 with SD card
 
-- Make sure BB2260 is unplugged from power
-- Set S6 switch on BB2260 to `0-1-0-0`, "SD Boot switch" should be set to "ON".
-   - Please see "1.1 Board Overview" on page 7 from [BB2260 Hardware Manual]() if you cannot find S6
-- Connect an HDMI monitor to the BB2260 with an HDMI cable, and power on the monitor
-- Plug a USB keyboard and/or mouse into either of the two USB connectors on the BB2260
-- Insert the microSD card into the BB2260
-- Plug power adaptor into BB2260, wait for board to boot up.
+- Make sure B2260 is unplugged from power
+- Connect an HDMI monitor to the B2260 with an HDMI cable, and power on the monitor
+- Plug a USB keyboard and mouse into the two USB connectors on the B2260
+- Insert the microSD card into the B2260
+- Plug power adaptor into B2260, wait for board to boot up.
 
-####**Step 7**: Install image onto BB2260
-
-<img src="http://i.imgur.com/F18wlgU.png" data-canonical-src="http://i.imgur.com/F18wlgU.png" width="400" height="250"/>
-
-- If **Steps 1 - 6** were followed correctly, the above screen should be visible from your BB2260
-- Select the image to install and click “Install” (or type “i”). OS will be installed into the eMMC memory
-- This process can take a few minutes to complete
-- Upon completion, “Flashing has completed and OS has installed successfully....” message will appear.
-
-Before clicking "OK":
-
-- Remove the SD Card
-- Set S6 switch on BB2260 to `0-0-0-0`, all switches should be set to "OFF"
-- Now click "OK" button and allow BB2260 to reboot.
-
-**Congratulations! You are now booting your newly installed operating system directly from eMMC on the BB2260!**
+**Congratulations! You are now booting your newly installed operating system directly from SDCard on the B2260!**

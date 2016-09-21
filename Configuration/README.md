@@ -1,7 +1,7 @@
 ## Configuration
 
-Execute unique configuraions to customize your BB2260 experience
+Execute unique configuraions to customize your B2260 Development Board experience
 
 ## Helpful Configurations
 
-< Insert custom BB2260 specific configurations here >
+< Insert custom B2260 specific configurations here >

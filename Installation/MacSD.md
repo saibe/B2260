@@ -1,6 +1,6 @@
 ## Mac OS X Host
 
-This section show how to install an operating system to your BB2260 using the SD Card method on a Mac OS X host computer.
+This section show how to install an operating system to your B2260 using the SD Card method on a Mac OS X host computer.
 ***
 
 - **Step 1**: Prepare MicroSD card
@@ -10,8 +10,7 @@ This section show how to install an operating system to your BB2260 using the SD
 - **Step 5**: Go to directory with _SD Card Install Image_ folder using Terminal
 - **Step 6**: Locate SD Card Install Image
 - **Step 7**: Install Image onto SD Card
-- **Step 8**: Prepare BB2260 with SD card
-- **Step 9**: Install image onto BB2260
+- **Step 8**: Prepare B2260 with SD card
 
 ***
 
@@ -44,9 +43,8 @@ diskutil list
 ####**Step 4**: Unzip _SD Card Install Image_
 
 - Uncompress or unzip the _SD Card Install Image_ . With Mac OS X, you can use the Finder app to locate the file and then double click to automatically unzip the file.
-- When unzipped, a folder (ex: heliox20_sdcard_install_debian-83) will be created with the following contents:
-   - An install Image (.img) (ex: db410c_sd_install_debian.img)
-   - Readme or license.txt
+- When unzipped, the following file should be present:
+   - An install Image (.img) (ex: b2260-jessie_developer_YYYYMMDD-X.img)
 
 ####**Step 5**: Go to directory with _SD Card Install Image_ folder using Terminal
 
@@ -56,7 +54,7 @@ diskutil list
 ```shell
 cd <extraction directory>
 
-#Example: 
+#Example:
 #<extraction directory> = /Users/YourUserName/Downloads
 #For this example we assume the "SD Card Install Image" is in the Downloads folder.
 cd /Users/YourUserName/Downloads
@@ -65,26 +63,16 @@ cd /Users/YourUserName/Downloads
 ####**Step 6**: Locate SD Card Install Image
 
 - Make sure you are in the extraction directory
+- Locate your preferred image file (latest one maybe the best option)
 
-**Unzipped SD Card download will be a folder. This folder should be found in your directory. Type `ls` from command line for a list of files that can be found in your current directory**:
+**Unzipped SD Card download will be a file.** Type `ls` from command line :
 
 ```shell
 ls
 
 #output
-heliox20_sdcard_install_Y-XX
+b2260-jessie_developer_YYYYMMDD-X.img
 ```
-
-- Unzipped folder should be called heliox20_sdcard_install_Y-XX, where Y can be Android or Debian and XX represents the release number
-- `cd` into this directory
-
-```shell
-cd heliox20_sdcard_install_Y-XX
-```
-
-- Inside this folder you will find the install image where Y is Android or Debian.
-   - `db410c_sd_install_Y.img`
-- This `.img` file is what will be flashed or copied to your SD Card.
 
 ####**Step 7**: Flash Image onto SD Card
 
@@ -92,22 +80,22 @@ cd heliox20_sdcard_install_Y-XX
 
 - SD card inserted into host computer
 - Recall SD Card device name from [**Step 2**]()
-- From within the heliox20_sdcard_install_Y-XX folder, using the Terminal execute the following commands:
+- Using the Terminal to copy b2260-jessie_developer_YYYYMMDD-X.img image file into SD card by running the following commands:
 
 **Execute:**
 
 ```shell
-$ sudo dd if=db410c_sd_install_Y.img of=/dev/XXX bs=4m
+$ sudo dd if=b2260-jessie_developer_YYYYMMDD-X.img of=/dev/XXX bs=4m
 $ sudo sync
 ```
 
 **Note:**
 
-- `if=db410c_sd_install_Y.img`: should match the name of the image that was downloaded.
+- `if=b2260-jessie_developer_YYYYMMDD-X.img.img`: should match the name of the image that was downloaded.
 - `of=/dev/XXX`: XXX should match the name of the SD Card device name from **Step 2**. Be sure to use the device name without the partition name. For example, 'of=/dev/disk1'
-- If you get an error message "Resource Busy", you will need to unmount the SD card without removing it from the host computer. 
+- If you get an error message "Resource Busy", you will need to unmount the SD card without removing it from the host computer.
   - Option 1:
-  - In the Applications folder, find and click on the Utilities folder. 
+  - In the Applications folder, find and click on the Utilities folder.
   - Click on the Disk Utility program to run it
   - Select the device that represents the SD card
   - Click on `unmount` and leave the SD card in the computer
@@ -117,33 +105,16 @@ $ sudo sync
 ```shell
 $ sudo umount /dev/<device name>
 ```
-  
+
 - This command will take some time to execute. Be patient and avoid tampering with the terminal until process has ended.
 - Once SD card is done flashing, remove from host computer and set aside for **Step 8** You may see a popup window that tells you the device is _Not readable by the operating system_. Ignore the message and remove the MicroSD card from the host computer.
 
-####**Step 8**: Prepare BB2260 with SD card
+####**Step 8**: Prepare B2260 with SD card
 
-- Make sure BB2260 is unplugged from power
-- Set S6 switch on BB2260 to `0-1-0-0`, "SD Boot switch" should be set to "ON".
-   - Please see "1.1 Board Overview" on page 7 from [BB2260 Hardware Manual]() if you cannot find S6
-- Connect an HDMI monitor to the BB2260 with an HDMI cable, and power on the monitor
-- Plug a USB keyboard and/or mouse into either of the two USB connectors on the BB2260
-- Insert the microSD card into the BB2260
-- Plug power adaptor into BB2260, wait for board to boot up.
+- Make sure B2260 is unplugged from power
+- Connect an HDMI monitor to the B2260 with an HDMI cable, and power on the monitor
+- Plug a USB keyboard and mouse into the two USB connectors on the B2260
+- Insert the microSD card into the B2260
+- Plug power adaptor into B2260, wait for board to boot up.
 
-####**Step 9**: Install image onto BB2260
-
-<img src="http://i.imgur.com/F18wlgU.png" data-canonical-src="http://i.imgur.com/F18wlgU.png" width="400" height="250"/>
-
-- If **Steps 1 - 8** were followed correctly, the above screen should be visible from your BB2260
-- Select the image to install and click “Install” (or type “i”). OS will be installed into the eMMC memory
-- This process can take a few minutes to complete
-- Upon completion, “Flashing has completed and OS has installed successfully....” message will appear.
-
-Before clicking "OK":
-
-- Remove the SD Card
-- Set S6 switch on BB2260 to `0-0-0-0`, all switches should be set to "OFF"
-- Now click "OK" button and allow BB2260 to reboot.
-
-**Congratulations! You are now booting your newly installed operating system directly from eMMC on the BB2260!**
+**Congratulations! You are now booting your newly installed operating system directly from SD card on the B2260!**
